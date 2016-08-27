@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Home</title>
+		{% for user in users %}
+		<title>{{user.alias}}</title>
+		{% endfor %}
 		{% load staticfiles %}
 		<link rel="stylesheet" type="text/css" href="{% static 'friendships/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'friendships/css/style.css' %}">
