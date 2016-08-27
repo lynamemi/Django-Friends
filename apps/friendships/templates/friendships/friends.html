@@ -20,19 +20,26 @@
 			<tr>
 				<th>Alias</th>
 				<th>Action</th>
-			</tr>				
-			{% for friend in ufriends %}
-				<tr>	
-					<td>{{friend.friend.alias}}</td>
-					<td><a href="/user/{{friend.friend.id}}">View Profile</a> | <a href="/delete_friend/{{friend.id}}">Remove as Friend</a></td>
+			</tr>	
+			{% if not ufriends and not ffriends %}
+				<tr>
+					<td>You don't have friends yet</td>
+					<td></td>
 				</tr>
-			{% endfor %}				
-			{% for friend in ffriends %}
-				<tr>	
-					<td>{{friend.user.alias}}</td>
-					<td><a href="/user/{{friend.user.id}}">View Profile</a> | <a href="/delete_friend/{{friend.id}}">Remove as Friend</a></td>
-				</tr>
-			{% endfor %}
+			{% else %}		
+				{% for friend in ufriends %}
+					<tr>	
+						<td>{{friend.friend.alias}}</td>
+						<td><a href="/user/{{friend.friend.id}}">View Profile</a> | <a href="/delete_friend/{{friend.id}}">Remove as Friend</a></td>
+					</tr>
+				{% endfor %}				
+				{% for friend in ffriends %}
+					<tr>	
+						<td>{{friend.user.alias}}</td>
+						<td><a href="/user/{{friend.user.id}}">View Profile</a> | <a href="/delete_friend/{{friend.id}}">Remove as Friend</a></td>
+					</tr>
+				{% endfor %}
+			{% endif %}	
 		</table>
 	</div>
 	<div class="panel panel-default">
