@@ -14,12 +14,12 @@ def friends(request):
 		'ffriends':Friendships.objects.filter(friend_id=request.session['user'])
 		}
 	# print context['users'][0].user.alias
-	return render(request, 'main/friends.html', context)
+	return render(request, 'friendships/friends.html', context)
 def show_user(request, id):
 	context = {
 		'users':User.objects.filter(id=id),
 		}
-	return render(request, 'main/show_user.html', context)
+	return render(request, 'friendships/show_user.html', context)
 def delete_friend(request, id):
 	friend = Friendships.objects.get(id=id)
 	friend.delete()
