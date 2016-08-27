@@ -24,7 +24,7 @@
 			<p class="alert">{{message.message}}</p>
 		{% endfor %}
 	{% endif %}
-	<h3>Sign In</h3>
+	<h3>Log In</h3>
 		<form id="form_log" action="/log_process" method="post">
 			{% csrf_token %}
 			<p>Email: <input type="text" name="email"></p>

@@ -10,9 +10,13 @@
 <body>
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
-			<h4>Hello World</h4> 
-			<a href="/logout">Logout</a>
+			<a href="/friends">Home</a> | <a href="/logout">Logout</a>
 		</div>
 	</nav>
+	{% for user in users %}
+		<h4>{{user.alias}}'s Profile</h4>
+		<p>Name: {{user.name}}</p>
+		<p>Email Address: {{user.email}}</p>
+	{% endfor %}
 </body>
 </html>

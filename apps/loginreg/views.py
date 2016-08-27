@@ -14,7 +14,7 @@ def reg_process(request):
 		return redirect('/')
 	else:
 		request.session['user'] = reg_user[1].id
-	return redirect(reverse('index'))
+	return redirect(reverse('friends'))
 def log_process(request):
 	log_user = User.userManager.login(request.POST)
 	if log_user[0] == False:
@@ -22,7 +22,7 @@ def log_process(request):
 		return redirect('/')
 	else:
 		request.session['user'] = log_user[1].id
-		return redirect(reverse('index'))
+		return redirect(reverse('friends'))
 def logout(request):
 	try:
 		request.session.clear()
